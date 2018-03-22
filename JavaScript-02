@@ -1,0 +1,119 @@
+  $(document).scroll(function() {
+      var y = $(this).scrollTop();
+      if (y > 200) {
+        $('#botaoVoltarTopo').fadeIn();
+      } else {
+        $('#botaoVoltarTopo').fadeOut();
+      }
+    });
+
+
+  $('#botaoVoltarTopo').on('click',function(){
+     $("html, body").animate({scrollTop: 0}, 1000);
+  });
+
+  $(window).scroll(function() {
+     if($(window).scrollTop() + $(window).height() == $(document).height()) {
+         $('#corBotaoVoltarTopo').css('color','#2f4d8b');
+     }else{
+         $('#corBotaoVoltarTopo').css('color','#2f4d8b');
+     }
+  });
+
+  var divTopo = $("div:contains('BEM-VINDOS | WELCOME')")[4].id;
+
+    $( document ).ready(function() {
+      $('img[src*="botao-diagnostico-veterinario"]').attr('id','imgDog');
+      $('img[src*="botao-analises-ambientais"]').attr('id','imgCup');
+          var width = $( window ).width();
+          if(width < 450){
+            $('div[id^="Header-"]').css('position', '');
+          $('div[id^="Header-"]').css('z-index','');
+          $('div[id^="Header-"]').css('width', '');
+          $('div[id^="Header-"]').css('background-color', '');  
+          $('#divLogin').css('margin-left','100px'); 
+          $('.menu').css('margin-top','0px'); 
+                  $('.navbar-header').css('background-color','#192C4D'); 
+          }
+    });
+
+       $('#'+divTopo).html('');
+       $('#'+divTopo).removeClass();
+       $('#'+divTopo).addClass('col-sm-12 col-md-12');
+       $('#'+divTopo).css('margin-left','05px');
+       $('body').css('min-width','90%');
+
+
+       var imgDog = '<a class="hidden-sm hidden-xs" href="http://veterinaria.cernitas.com.br"><img style="width:14%;" src="data:image/png;base64,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"></a>';
+       
+     var imgCup = '<a class="hidden-sm hidden-xs" href="http://analisesambientais.cernitas.com.br"><img style="width:14%;" src="data:image/png;base64,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"></a>';
+
+          var switchBtn = '<div class="col-md-2 col-sm-4 btn-group" style="" id="toggle_event_editing"><button id="btnVet" type="button" class="btn btn-warning locked_active"><b>Veterinário</b></button><button type="button" id="btnAmb" class="btn btn-default unlocked_inactive"><b>Ambiental</b></button></div>'; 
+
+     var login = '<div class="col-md-2 hidden-sm" style="margin-top:8px">'+imgDog+imgCup+'<span style="font-size: 11pt; color: #1c2c4d;margin-right:50px;">BEM-VINDOS | WELCOME</span></div>'+switchBtn+'<div class="col-md-8 col-sm-8 col-xs-5" id="divLogin"><form class="navbar-form" style="position: absolute; margin-top:0px;margin-bottom:0px" action="http://cernitas.meuresultado.com.br/login.asp" method="POST" name="frmLogin" onsubmit="return ValidaLogin();" target="_blank"><input name="formAcao" type="hidden" value="Login"/> <div class="input-group" style="margin-right:3px;"> <span class="input-group-addon"><i class="fa fa-user"></i></span> <input type="text" id="usr" name="usuarioLogin" placeholder="Login" class="form-control input-sm"> </div><div class="input-group"  style="margin-right:3px;"> <span class="input-group-addon"><i class="fa fa-lock"></i></span> <input id="psw" name="usuarioSenha" placeholder="Senha" class="form-control input-sm"> </div><button type="submit" id="botao" style="padding:4px" name="enviar" class="btn btn-warning"><b> Resultado Online</b></button></form></div>';
+
+
+        $(document).on("click", '#botao', function (e) { 
+            if($('#btnAmb').hasClass('btn-primary')){
+                $('#botao').html('<i class="fa fa-spinner fa-spin" style="font-size:14px"></i>');            
+            }
+       });
+
+
+
+       $(document).on("click", '#btnVet', function (e) {   
+            $('#btnVet').removeClass('btn-default');
+            $('#btnVet').addClass('btn-warning');
+            $('#btnAmb').removeClass('btn-primary');
+            $('#btnAmb').addClass("btn-default");
+
+            $('#botao').removeClass("btn-primary");
+            $('#botao').addClass("btn-warning");         
+
+             $('#botao').attr('type','submit');
+            $('#botao').attr('onclick','');
+       });
+
+      $(document).on("click", '#btnAmb', function (e) {      
+            $('#btnVet').removeClass('btn-warning');
+            $('#btnVet').addClass('btn-default');
+            $('#btnAmb').removeClass('btn-default');
+            $('#btnAmb').addClass("btn-primary");
+
+            $('#botao').removeClass("btn-warning");
+            $('#botao').addClass("btn-primary");
+
+            $('#botao').attr('type','button');
+            $('#botao').attr('onclick','post();');
+       });
+
+
+     $('#'+divTopo).append(login);
+     var spanTopo = $("span:contains('BEM-VINDOS | WELCOME')");
+     spanTopo.hide();
+
+     
+     $('div[id^="Header-"]').css('position', 'fixed');
+     $('div[id^="Header-"]').css('z-index','100');
+     $('div[id^="Header-"]').css('width', '100%');
+     $('div[id^="Header-"]').css('background-color', '');
+
+      function post() {
+          $.ajax({
+              type: "POST",
+              url: "https://portal.mylimsweb.com/Login/DoLogin",
+              crossDomain: true,
+              xhrFields: {
+                  withCredentials: true
+              },
+              data: 'username=' + $('#usr').val() + '&password=' + $('#psw').val() + '&company=Cernitas&language=en-US',
+              success: function (data) {
+                  $('#botao').html('Meu Resultado Online');
+                  window.location = "http://portal.mylimsweb.com/Sample";
+              },
+              error: function (err) {
+                  $('#botao').html('Meu Resultado Online');
+                  alert('Erro ao autenticar, Não foi possivel efetuar o login devido a erros internos.');
+              }
+          });
+      }
